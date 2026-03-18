@@ -17,6 +17,7 @@ const config: StorybookConfig = {
       resolve: {
         alias: {
           "@": path.resolve(__dirname, "../src"),
+          "@contracts": path.resolve(__dirname, "../contracts/gen/ts"),
         },
       },
     });
