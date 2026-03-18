@@ -25,8 +25,6 @@ export default defineConfig({
 
   use: {
     baseURL: "http://localhost:6007",
-    // Desabilita transições CSS para determinismo dos snapshots (ADR-031)
-    reducedMotion: "reduce",
   },
 
   projects: [
