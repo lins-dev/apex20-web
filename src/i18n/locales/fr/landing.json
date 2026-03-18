@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "features": "Fonctionnalités",
+    "systems": "Systèmes",
+    "roadmap": "Feuille de route",
+    "docs": "Documentation",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "login": "Se connecter",
+    "cta": "Commencer gratuitement"
+  },
+  "hero": {
+    "badge": "Sprint 2 · En développement actif",
+    "title_pre": "La table qui",
+    "title_highlight": "ne plante jamais",
+    "title_post": "l'histoire.",
+    "subtitle": "VTT haute performance pour JDR. Synchronisation en temps réel sous 100ms, dés physiques lus par caméra et résumés de session générés par IA — sans quitter la table.",
+    "cta_primary": "Créer un compte gratuit",
+    "cta_secondary": "Voir la démo →",
+    "metric_latency_label": "Latence de synchronisation",
+    "metric_speed_label": "Moins de temps par round",
+    "metric_import_label": "Import Foundry VTT"
+  },
+  "systems": {
+    "label": "Compatible avec les principaux systèmes de JDR",
+    "more": "+ bien d'autres"
+  },
+  "sections": {
+    "grid": {
+      "eyebrow": "01 — Grille Synchronisée",
+      "title": "Déplacez des tokens. Tout le monde voit immédiatement.",
+      "description": "Chaque action sur la carte est propagée à tous les joueurs en moins de 100ms via WebSocket. L'Optimistic UI garantit que le MJ n'attend jamais — la grille répond au toucher et se réconcilie avec le serveur en arrière-plan.",
+      "bullet1": "Brouillard de guerre et éclairage dynamique sans accroc",
+      "bullet2": "Déplacement avec soft-lock : voyez quand un autre joueur fait glisser",
+      "bullet3": "Import complet des scènes Foundry VTT",
+      "synced": "Synchronisé · 42ms",
+      "round_label": "Round 5 · Tour : Mage"
+    },
+    "camera": {
+      "eyebrow": "02 — Vision par Ordinateur",
+      "title": "Vos dés physiques. Lus par la caméra.",
+      "description": "MediaPipe détecte les dés physiques sur la table en temps réel. Le résultat apparaît dans le chat automatiquement — sans taper, sans interrompre la narration. Les gestes de la main contrôlent le zoom et le panoramique.",
+      "bullet1": "Reconnaissance des d4, d6, d8, d10, d12, d20",
+      "bullet2": "Gestes : pincer pour zoomer, glisser pour panoramiquer",
+      "bullet3": "Fonctionne avec la caméra du téléphone ou une webcam",
+      "camera_active": "Caméra active",
+      "rolled": "Aria a lancé",
+      "critical": "Coup critique !"
+    },
+    "ai": {
+      "eyebrow": "03 — IA & Automatisation",
+      "title": "La session se termine. Le résumé est déjà prêt.",
+      "description": "Tous les événements de chat et de combat sont enregistrés dans une structure de données. À la fin de la session, l'IA génère un résumé narratif complet et l'envoie automatiquement au groupe via WhatsApp, Telegram ou e-mail.",
+      "bullet1": "PNJs générés avec fiche et illustration en quelques secondes",
+      "bullet2": "Journal de combat avec chronologie interactive",
+      "bullet3": "Envoi automatique post-session au groupe",
+      "session_title": "Résumé de la Session #12",
+      "ai_generated": "Généré par IA",
+      "combats": "Combats",
+      "xp": "XP gagné",
+      "items": "Objets",
+      "sending": "Envoi au groupe..."
+    }
+  },
+  "features": {
+    "eyebrow": "Plateforme complète",
+    "title": "Tout ce qu'une table nécessite. Rien de superflu.",
+    "grid_title": "Grille & Brouillard de Guerre",
+    "grid_desc": "Cartes dynamiques avec éclairage par rayon, ombres et brouillard de guerre. Support hex et square grid.",
+    "combat_title": "Suivi de Combat",
+    "combat_desc": "Initiative automatisée, effets par tour, compteurs de PV et actions — sans tableurs parallèles.",
+    "dice_title": "Dés 3D & Chat",
+    "dice_desc": "Jets synchronisés avec physique 3D. Les formules complexes comme 4d6kh3+2 fonctionnent nativement.",
+    "import_title": "Foundry VTT Importer",
+    "import_desc": "Importez des scènes, acteurs, objets et compendiums entiers. Taux de réussite supérieur à 90%.",
+    "ar_title": "Réalité Augmentée",
+    "ar_desc": "Projetez la grille sur la table physique avec WebXR. Figurines 3D visibles sur smartphone.",
+    "offline_title": "Local-first & Hors ligne",
+    "offline_desc": "Fonctionne sans internet. L'état de la table est synchronisé automatiquement au retour de la connexion."
+  },
+  "cta": {
+    "title": "Prêt à jouer sans lag ?",
+    "subtitle": "Créez votre compte gratuitement. Sans carte de crédit, sans limite de campagnes pendant la période Alpha.",
+    "cta_primary": "Créer un compte gratuit",
+    "cta_secondary": "Voir la feuille de route"
+  },
+  "footer": {
+    "tagline": "VTT haute performance pour JDR. Conçu pour les MJ exigeants et les joueurs sérieux.",
+    "rights": "Tous droits réservés.",
+    "status": "Tous les systèmes opérationnels",
+    "product": "Produit",
+    "resources": "Ressources",
+    "community": "Communauté",
+    "company": "Entreprise",
+    "product_features": "Fonctionnalités",
+    "product_roadmap": "Feuille de route",
+    "product_pricing": "Tarifs",
+    "product_changelog": "Changelog",
+    "res_docs": "Documentation",
+    "res_api": "API Publique",
+    "res_foundry": "Foundry Importer",
+    "res_status": "Statut",
+    "com_discord": "Discord",
+    "com_github": "GitHub",
+    "com_contribute": "Contribuer",
+    "com_bug": "Signaler un Bug",
+    "comp_about": "À propos",
+    "comp_blog": "Blog",
+    "comp_privacy": "Confidentialité",
+    "comp_terms": "Conditions d'utilisation"
+  },
+  "lang": {
+    "switcher_label": "Langue"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "features": "Funcionalidades",
+    "systems": "Sistemas",
+    "roadmap": "Hoja de ruta",
+    "docs": "Documentación",
+    "pricing": "Precios",
+    "about": "Sobre nosotros",
+    "login": "Iniciar sesión",
+    "cta": "Comenzar gratis"
+  },
+  "hero": {
+    "badge": "Sprint 2 · En desarrollo activo",
+    "title_pre": "El tablero que",
+    "title_highlight": "no congela",
+    "title_post": "la historia.",
+    "subtitle": "VTT de alto rendimiento para JDR. Sincronización en tiempo real con menos de 100ms, dados físicos leídos por cámara y resúmenes de sesión generados por IA — sin salir de la mesa.",
+    "cta_primary": "Crear cuenta gratis",
+    "cta_secondary": "Ver demostración →",
+    "metric_latency_label": "Latencia de sincronización",
+    "metric_speed_label": "Menos tiempo por ronda",
+    "metric_import_label": "Importación Foundry VTT"
+  },
+  "systems": {
+    "label": "Compatible con los principales sistemas de JDR",
+    "more": "+ muchos más"
+  },
+  "sections": {
+    "grid": {
+      "eyebrow": "01 — Grid Sincronizado",
+      "title": "Mueve tokens. Todos ven al instante.",
+      "description": "Cada acción en el mapa se propaga a todos los jugadores en menos de 100ms vía WebSocket. Optimistic UI garantiza que el máster nunca espera — el grid responde al toque y reconcilia con el servidor en segundo plano.",
+      "bullet1": "Niebla de guerra e iluminación dinámica sin tartamudeo",
+      "bullet2": "Movimiento con soft-lock: ve cuando otro jugador está arrastrando",
+      "bullet3": "Importación completa de escenarios de Foundry VTT",
+      "synced": "Sincronizado · 42ms",
+      "round_label": "Ronda 5 · Turno: Mago"
+    },
+    "camera": {
+      "eyebrow": "02 — Visión Computacional",
+      "title": "Tus dados físicos. Leídos por la cámara.",
+      "description": "MediaPipe detecta dados físicos sobre la mesa en tiempo real. El resultado aparece en el chat automáticamente — sin escribir, sin pausar la narrativa. Los gestos de mano controlan zoom y pan en el mapa.",
+      "bullet1": "Reconocimiento de d4, d6, d8, d10, d12, d20",
+      "bullet2": "Gestos: pinch para zoom, swipe para pan",
+      "bullet3": "Funciona con cámara del móvil o webcam",
+      "camera_active": "Cámara activa",
+      "rolled": "Aria tiró",
+      "critical": "¡Golpe crítico!"
+    },
+    "ai": {
+      "eyebrow": "03 — IA & Automatización",
+      "title": "La sesión termina. El resumen ya está listo.",
+      "description": "Todos los eventos de chat y combate se registran en estructura de datos. Al final de la sesión, la IA genera un resumen narrativo completo y lo envía automáticamente al grupo vía WhatsApp, Telegram o e-mail.",
+      "bullet1": "NPCs generados con ficha y arte en segundos",
+      "bullet2": "Historial de combate con línea de tiempo interactiva",
+      "bullet3": "Envío automático post-sesión al grupo",
+      "session_title": "Resumen de Sesión #12",
+      "ai_generated": "Generado por IA",
+      "combats": "Combates",
+      "xp": "XP ganado",
+      "items": "Objetos",
+      "sending": "Enviando al grupo..."
+    }
+  },
+  "features": {
+    "eyebrow": "Plataforma completa",
+    "title": "Todo lo que una mesa necesita. Nada que estorbe.",
+    "grid_title": "Grid & Niebla de Guerra",
+    "grid_desc": "Mapas dinámicos con iluminación por rayos, sombras y niebla de guerra. Soporte de hex y square grid.",
+    "combat_title": "Combat Tracker",
+    "combat_desc": "Iniciativa automatizada, efectos por turno, contadores de HP y acciones — sin hojas de cálculo paralelas.",
+    "dice_title": "Dados 3D & Chat",
+    "dice_desc": "Tiradas sincronizadas con física 3D. Fórmulas complejas como 4d6kh3+2 funcionan nativamente.",
+    "import_title": "Foundry VTT Importer",
+    "import_desc": "Importa escenas, actores, objetos y compendios enteros. Tasa de éxito superior al 90%.",
+    "ar_title": "Realidad Aumentada",
+    "ar_desc": "Proyecta el grid sobre la mesa física con WebXR. Miniaturas 3D visibles por smartphone.",
+    "offline_title": "Local-first & Sin conexión",
+    "offline_desc": "Funciona sin internet. El estado de la mesa se sincroniza automáticamente cuando vuelve la conexión."
+  },
+  "cta": {
+    "title": "¿Listo para jugar sin retrasos?",
+    "subtitle": "Crea tu cuenta de forma gratuita. Sin tarjeta de crédito, sin límite de campañas durante el período Alpha.",
+    "cta_primary": "Crear cuenta gratis",
+    "cta_secondary": "Ver la hoja de ruta"
+  },
+  "footer": {
+    "tagline": "VTT de alto rendimiento para JDR. Construido para maestros exigentes y jugadores serios.",
+    "rights": "Todos los derechos reservados.",
+    "status": "Todos los sistemas operativos",
+    "product": "Producto",
+    "resources": "Recursos",
+    "community": "Comunidad",
+    "company": "Empresa",
+    "product_features": "Funcionalidades",
+    "product_roadmap": "Hoja de ruta",
+    "product_pricing": "Precios",
+    "product_changelog": "Changelog",
+    "res_docs": "Documentación",
+    "res_api": "API Pública",
+    "res_foundry": "Foundry Importer",
+    "res_status": "Estado",
+    "com_discord": "Discord",
+    "com_github": "GitHub",
+    "com_contribute": "Contribuir",
+    "com_bug": "Reportar Bug",
+    "comp_about": "Sobre nosotros",
+    "comp_blog": "Blog",
+    "comp_privacy": "Privacidad",
+    "comp_terms": "Términos de uso"
+  },
+  "lang": {
+    "switcher_label": "Idioma"
+  }
+}

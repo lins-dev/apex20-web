@@ -1,24 +1,36 @@
 import enCommon from "./locales/en/common.json";
-import ptBRCommon from "./locales/pt-br/common.json";
+import enLanding from "./locales/en/landing.json";
+import ptBrCommon from "./locales/pt-br/common.json";
+import ptBrLanding from "./locales/pt-br/landing.json";
+import esCommon from "./locales/es/common.json";
+import esLanding from "./locales/es/landing.json";
+import frCommon from "./locales/fr/common.json";
+import frLanding from "./locales/fr/landing.json";
 
 const locales = {
-  en: { common: enCommon },
-  "pt-BR": { common: ptBRCommon },
+  en: { common: enCommon, landing: enLanding },
+  "pt-br": { common: ptBrCommon, landing: ptBrLanding },
+  es: { common: esCommon, landing: esLanding },
+  fr: { common: frCommon, landing: frLanding },
 } as const;
 
 export type Locale = keyof typeof locales;
 export type Namespace = keyof (typeof locales)["en"];
 
+export const LOCALES: Locale[] = ["pt-br", "en", "es", "fr"];
+export const DEFAULT_LOCALE: Locale = "pt-br";
+
 /**
- * Função simplificada para tradução (t).
- * Futuramente poderá ser substituída por i18next se necessário.
+ * Traduz uma chave com suporte a dot-notation: t("landing.nav.features", "pt-br")
  */
 export function t(key: string, locale: Locale): string {
-  const [ns, k] = key.split(".");
-  const dict = locales[locale]?.[ns as Namespace];
+  const [ns, ...path] = key.split(".");
+  let current: unknown = locales[locale]?.[ns as Namespace];
 
-  if (!dict) return key;
+  for (const segment of path) {
+    if (typeof current !== "object" || current === null) return key;
+    current = (current as Record<string, unknown>)[segment];
+  }
 
-  // @ts-expect-error - indexação dinâmica para simplificar o scaffold
-  return dict[k] || key;
+  return typeof current === "string" ? current : key;
 }

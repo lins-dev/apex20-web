@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "features": "Features",
+    "systems": "Systems",
+    "roadmap": "Roadmap",
+    "docs": "Documentation",
+    "pricing": "Pricing",
+    "about": "About Us",
+    "login": "Log in",
+    "cta": "Start for free"
+  },
+  "hero": {
+    "badge": "Sprint 2 · Actively in development",
+    "title_pre": "The tabletop that",
+    "title_highlight": "never lags",
+    "title_post": "the story.",
+    "subtitle": "High-performance VTT for RPG. Real-time sync under 100ms, physical dice read by camera, AI-generated session summaries — all at the table.",
+    "cta_primary": "Create free account",
+    "cta_secondary": "Watch demo →",
+    "metric_latency_label": "Sync latency",
+    "metric_speed_label": "Less time per round",
+    "metric_import_label": "Foundry VTT import rate"
+  },
+  "systems": {
+    "label": "Compatible with the major RPG systems",
+    "more": "+ many more"
+  },
+  "sections": {
+    "grid": {
+      "eyebrow": "01 — Synchronized Grid",
+      "title": "Move tokens. Everyone sees it instantly.",
+      "description": "Every map action is propagated to all players in under 100ms via WebSocket. Optimistic UI ensures the GM never waits — the grid responds to touch and reconciles with the server in the background.",
+      "bullet1": "Fog of War and dynamic lighting with no stutter",
+      "bullet2": "Soft-lock movement: see when another player is dragging",
+      "bullet3": "Full Foundry VTT scene import",
+      "synced": "Synced · 42ms",
+      "round_label": "Round 5 · Turn: Wizard"
+    },
+    "camera": {
+      "eyebrow": "02 — Computer Vision",
+      "title": "Your physical dice. Read by camera.",
+      "description": "MediaPipe detects physical dice on the table in real time. Results appear in chat automatically — no typing, no pausing the story. Hand gestures control zoom and pan on the map.",
+      "bullet1": "Recognition of d4, d6, d8, d10, d12, d20",
+      "bullet2": "Gestures: pinch to zoom, swipe to pan",
+      "bullet3": "Works with phone camera or webcam",
+      "camera_active": "Camera active",
+      "rolled": "Aria rolled",
+      "critical": "Critical hit!"
+    },
+    "ai": {
+      "eyebrow": "03 — AI & Automation",
+      "title": "Session ends. Summary is already ready.",
+      "description": "All chat and combat events are recorded in structured data. At the end of the session, AI generates a complete narrative summary and sends it to the group via WhatsApp, Telegram or email.",
+      "bullet1": "NPCs generated with sheet and art in seconds",
+      "bullet2": "Combat log with interactive timeline",
+      "bullet3": "Automatic post-session delivery to the group",
+      "session_title": "Session Summary #12",
+      "ai_generated": "AI Generated",
+      "combats": "Combats",
+      "xp": "XP gained",
+      "items": "Items",
+      "sending": "Sending to group..."
+    }
+  },
+  "features": {
+    "eyebrow": "Full platform",
+    "title": "Everything a table needs. Nothing in the way.",
+    "grid_title": "Grid & Fog of War",
+    "grid_desc": "Dynamic maps with ray lighting, shadows and fog of war. Hex and square grid support.",
+    "combat_title": "Combat Tracker",
+    "combat_desc": "Automated initiative, per-turn effects, HP counters and actions — no parallel spreadsheets.",
+    "dice_title": "3D Dice & Chat",
+    "dice_desc": "Synced rolls with 3D physics. Complex formulas like 4d6kh3+2 work natively.",
+    "import_title": "Foundry VTT Importer",
+    "import_desc": "Import scenes, actors, items and entire compendiums. Over 90% success rate.",
+    "ar_title": "Augmented Reality",
+    "ar_desc": "Project the grid onto the physical table with WebXR. 3D miniatures visible on smartphone.",
+    "offline_title": "Local-first & Offline",
+    "offline_desc": "Works without internet. Table state is synced automatically when connection returns."
+  },
+  "cta": {
+    "title": "Ready to play without lag?",
+    "subtitle": "Create your account for free. No credit card, no campaign limit during the Alpha period.",
+    "cta_primary": "Create free account",
+    "cta_secondary": "See the roadmap"
+  },
+  "footer": {
+    "tagline": "High-performance VTT for RPG. Built for demanding GMs and serious players.",
+    "rights": "All rights reserved.",
+    "status": "All systems operational",
+    "product": "Product",
+    "resources": "Resources",
+    "community": "Community",
+    "company": "Company",
+    "product_features": "Features",
+    "product_roadmap": "Roadmap",
+    "product_pricing": "Pricing",
+    "product_changelog": "Changelog",
+    "res_docs": "Documentation",
+    "res_api": "Public API",
+    "res_foundry": "Foundry Importer",
+    "res_status": "Status",
+    "com_discord": "Discord",
+    "com_github": "GitHub",
+    "com_contribute": "Contribute",
+    "com_bug": "Report a Bug",
+    "comp_about": "About",
+    "comp_blog": "Blog",
+    "comp_privacy": "Privacy",
+    "comp_terms": "Terms of Use"
+  },
+  "lang": {
+    "switcher_label": "Language"
+  }
+}

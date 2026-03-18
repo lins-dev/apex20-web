@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "features": "Funcionalidades",
+    "systems": "Sistemas",
+    "roadmap": "Roadmap",
+    "docs": "Documentação",
+    "pricing": "Preços",
+    "about": "Sobre nós",
+    "login": "Entrar",
+    "cta": "Começar grátis"
+  },
+  "hero": {
+    "badge": "Sprint 2 · Em desenvolvimento ativo",
+    "title_pre": "O tabuleiro que",
+    "title_highlight": "não trava",
+    "title_post": "a história.",
+    "subtitle": "VTT de alta performance para RPG. Sincronização em tempo real com menos de 100ms, dados físicos lidos pela câmera e resumos de sessão gerados por IA — sem sair da mesa.",
+    "cta_primary": "Criar conta grátis",
+    "cta_secondary": "Ver demonstração →",
+    "metric_latency_label": "Latência de sincronização",
+    "metric_speed_label": "Menos tempo por rodada",
+    "metric_import_label": "Importação Foundry VTT"
+  },
+  "systems": {
+    "label": "Compatível com os principais sistemas de RPG",
+    "more": "+ muito mais"
+  },
+  "sections": {
+    "grid": {
+      "eyebrow": "01 — Grid Sincronizado",
+      "title": "Mova tokens. Todos veem na hora.",
+      "description": "Cada ação no mapa é propagada para todos os jogadores em menos de 100ms via WebSocket. Optimistic UI garante que o mestre nunca espera — o grid responde ao toque e reconcilia com o servidor em segundo plano.",
+      "bullet1": "Fog of War e iluminação dinâmica sem engasgar",
+      "bullet2": "Movimentação com soft-lock: veja quando outro jogador está arrastando",
+      "bullet3": "Importação completa de cenários do Foundry VTT",
+      "synced": "Sincronizado · 42ms",
+      "round_label": "Round 5 · Turno: Mago"
+    },
+    "camera": {
+      "eyebrow": "02 — Visão Computacional",
+      "title": "Seus dados físicos. Lidos pela câmera.",
+      "description": "MediaPipe detecta dados físicos sobre a mesa em tempo real. O resultado aparece no chat automaticamente — sem digitar, sem pausar a narrativa. Gestos de mão controlam zoom e pan no mapa.",
+      "bullet1": "Reconhecimento de d4, d6, d8, d10, d12, d20",
+      "bullet2": "Gestos: pinch para zoom, swipe para pan",
+      "bullet3": "Funciona com câmera do celular ou webcam",
+      "camera_active": "Câmera ativa",
+      "rolled": "Aria rolou",
+      "critical": "Acerto crítico!"
+    },
+    "ai": {
+      "eyebrow": "03 — IA & Automação",
+      "title": "A sessão termina. O resumo já está pronto.",
+      "description": "Todos os eventos de chat e combate são registrados em estrutura de dados. Ao fim da sessão, a IA gera um resumo narrativo completo e envia automaticamente para o grupo via WhatsApp, Telegram ou e-mail.",
+      "bullet1": "NPCs gerados com ficha e arte em segundos",
+      "bullet2": "Histórico de combate com timeline interativa",
+      "bullet3": "Envio automático pós-sessão para o grupo",
+      "session_title": "Resumo da Sessão #12",
+      "ai_generated": "Gerado por IA",
+      "combats": "Combates",
+      "xp": "XP ganho",
+      "items": "Itens",
+      "sending": "Enviando para o grupo..."
+    }
+  },
+  "features": {
+    "eyebrow": "Plataforma completa",
+    "title": "Tudo que uma mesa precisa. Nada que atrapalhe.",
+    "grid_title": "Grid & Fog of War",
+    "grid_desc": "Mapas dinâmicos com iluminação por raio, sombras e névoa de guerra. Suporte a hex e square grid.",
+    "combat_title": "Combat Tracker",
+    "combat_desc": "Iniciativa automatizada, efeitos por turno, contadores de HP e ações — sem planilhas paralelas.",
+    "dice_title": "Dados 3D & Chat",
+    "dice_desc": "Rolagens sincronizadas com física 3D. Fórmulas complexas como 4d6kh3+2 funcionam nativamente.",
+    "import_title": "Foundry VTT Importer",
+    "import_desc": "Importe cenas, atores, itens e compêndios inteiros. Taxa de sucesso superior a 90%.",
+    "ar_title": "Realidade Aumentada",
+    "ar_desc": "Projete o grid sobre a mesa física com WebXR. Miniaturas 3D visíveis pelo smartphone.",
+    "offline_title": "Local-first & Offline",
+    "offline_desc": "Funciona sem internet. O estado da mesa é sincronizado automaticamente quando a conexão volta."
+  },
+  "cta": {
+    "title": "Pronto para jogar sem travar?",
+    "subtitle": "Crie sua conta gratuitamente. Sem cartão de crédito, sem limite de campanhas durante o período Alpha.",
+    "cta_primary": "Criar conta grátis",
+    "cta_secondary": "Ver o roadmap"
+  },
+  "footer": {
+    "tagline": "VTT de alta performance para RPG. Construído para mestres exigentes e jogadores sérios.",
+    "rights": "Todos os direitos reservados.",
+    "status": "Todos os sistemas operacionais",
+    "product": "Produto",
+    "resources": "Recursos",
+    "community": "Comunidade",
+    "company": "Empresa",
+    "product_features": "Funcionalidades",
+    "product_roadmap": "Roadmap",
+    "product_pricing": "Preços",
+    "product_changelog": "Changelog",
+    "res_docs": "Documentação",
+    "res_api": "API Pública",
+    "res_foundry": "Foundry Importer",
+    "res_status": "Status",
+    "com_discord": "Discord",
+    "com_github": "GitHub",
+    "com_contribute": "Contribuir",
+    "com_bug": "Reportar Bug",
+    "comp_about": "Sobre",
+    "comp_blog": "Blog",
+    "comp_privacy": "Privacidade",
+    "comp_terms": "Termos de Uso"
+  },
+  "lang": {
+    "switcher_label": "Idioma"
+  }
+}
