@@ -1,9 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import path from "path";
-import { fileURLToPath } from "url";
 import { mergeConfig } from "vite";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(ts|tsx)"],
@@ -16,8 +13,8 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       resolve: {
         alias: {
-          "@": path.resolve(__dirname, "../src"),
-          "@contracts": path.resolve(__dirname, "../contracts/gen/ts"),
+          "@": path.resolve(process.cwd(), "src"),
+          "@contracts": path.resolve(process.cwd(), "contracts/gen/ts"),
         },
       },
     });
