@@ -90,7 +90,7 @@ export function AuthLayout({ locale, title, subtitle, children }: AuthLayoutProp
 
                 <div className="flex flex-col gap-3">
                   <h2 className="text-2xl font-bold leading-snug tracking-tight text-foreground">
-                    The tabletop that never{" "}
+                    {t("landing.hero.title_pre", locale)}{" "}
                     <span
                       className="bg-clip-text text-transparent"
                       style={{
@@ -98,8 +98,9 @@ export function AuthLayout({ locale, title, subtitle, children }: AuthLayoutProp
                           "linear-gradient(135deg, #8b5cf6 0%, #a78bfa 60%, #c4b5fd 100%)",
                       }}
                     >
-                      lags the story.
-                    </span>
+                      {t("landing.hero.title_highlight", locale)}
+                    </span>{" "}
+                    {t("landing.hero.title_post", locale)}
                   </h2>
                   <p className="text-sm leading-relaxed text-muted">
                     {t("landing.hero.subtitle", locale)}
