@@ -1,17 +1,21 @@
 import enCommon from "./locales/en/common.json";
 import enLanding from "./locales/en/landing.json";
+import enAuth from "./locales/en/auth.json";
 import ptBrCommon from "./locales/pt-br/common.json";
 import ptBrLanding from "./locales/pt-br/landing.json";
+import ptBrAuth from "./locales/pt-br/auth.json";
 import esCommon from "./locales/es/common.json";
 import esLanding from "./locales/es/landing.json";
+import esAuth from "./locales/es/auth.json";
 import frCommon from "./locales/fr/common.json";
 import frLanding from "./locales/fr/landing.json";
+import frAuth from "./locales/fr/auth.json";
 
 const locales = {
-  en: { common: enCommon, landing: enLanding },
-  "pt-br": { common: ptBrCommon, landing: ptBrLanding },
-  es: { common: esCommon, landing: esLanding },
-  fr: { common: frCommon, landing: frLanding },
+  en: { common: enCommon, landing: enLanding, auth: enAuth },
+  "pt-br": { common: ptBrCommon, landing: ptBrLanding, auth: ptBrAuth },
+  es: { common: esCommon, landing: esLanding, auth: esAuth },
+  fr: { common: frCommon, landing: frLanding, auth: frAuth },
 } as const;
 
 export type Locale = keyof typeof locales;
