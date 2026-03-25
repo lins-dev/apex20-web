@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { headers } from "next/headers";
+import { t, type Locale } from "@/i18n";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,11 +14,14 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Apex20 — VTT de alta performance para RPG",
-  description:
-    "Virtual Tabletop com sincronização em tempo real, dados físicos via câmera e resumos automáticos de sessão. Zero fricção, máxima imersão.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers();
+  const locale = (headersList.get("x-locale") ?? "pt-br") as Locale;
+  return {
+    title: t("common.meta.title", locale),
+    description: t("common.meta.description", locale),
+  };
+}
 
 export default async function RootLayout({
   children,

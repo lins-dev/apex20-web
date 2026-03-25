@@ -1,3 +1,7 @@
 {
-  "welcome": "Welcome to Apex20"
+  "welcome": "Welcome to Apex20",
+  "meta": {
+    "title": "Apex20 — High-performance VTT for RPG",
+    "description": "Virtual Tabletop with real-time sync under 100ms, physical dice read by camera, and AI-generated session summaries. Zero friction, maximum immersion."
+  }
 }

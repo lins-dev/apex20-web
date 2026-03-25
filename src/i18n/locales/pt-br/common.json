@@ -1,3 +1,7 @@
 {
-  "welcome": "Bem-vindo ao Apex20"
+  "welcome": "Bem-vindo ao Apex20",
+  "meta": {
+    "title": "Apex20 — VTT de alta performance para RPG",
+    "description": "Virtual Tabletop com sincronização em tempo real abaixo de 100ms, dados físicos lidos pela câmera e resumos de sessão gerados por IA. Zero fricção, máxima imersão."
+  }
 }

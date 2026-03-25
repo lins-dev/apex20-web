@@ -1,3 +1,7 @@
 {
-  "welcome": "Bienvenue sur Apex20"
+  "welcome": "Bienvenue sur Apex20",
+  "meta": {
+    "title": "Apex20 — VTT haute performance pour JDR",
+    "description": "Table virtuelle avec synchronisation en temps réel sous 100ms, dés physiques lus par caméra et résumés de session générés par IA. Zéro friction, immersion totale."
+  }
 }
