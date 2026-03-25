@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { createHealthClient, createChatClient, createSessionClient } from "./clients";
+import { createHealthClient, createChatClient, createSessionClient, createAuthClient } from "./clients";
 import { createTransport } from "./transport";
 
 // Mock the transport so tests don't need a real backend
@@ -43,6 +43,25 @@ describe("createSessionClient", () => {
 
   it("uses the default transport when none is provided", () => {
     const client = createSessionClient();
+    expect(client).toBeDefined();
+  });
+});
+
+describe("createAuthClient", () => {
+  it("returns a client with the signIn method", () => {
+    const transport = createTransport();
+    const client = createAuthClient(transport);
+    expect(typeof client.signIn).toBe("function");
+  });
+
+  it("returns a client with the signUp method", () => {
+    const transport = createTransport();
+    const client = createAuthClient(transport);
+    expect(typeof client.signUp).toBe("function");
+  });
+
+  it("uses the default transport when none is provided", () => {
+    const client = createAuthClient();
     expect(client).toBeDefined();
   });
 });

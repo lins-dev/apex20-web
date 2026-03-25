@@ -15,6 +15,7 @@ const config: StorybookConfig = {
         alias: {
           "@": path.resolve(process.cwd(), "src"),
           "@contracts": path.resolve(process.cwd(), "contracts/gen/ts"),
+          "next/link": path.resolve(process.cwd(), "src/__mocks__/next-link.tsx"),
         },
       },
     });
