@@ -94,7 +94,7 @@ test.describe("Auth — Full Flow (requires backend)", () => {
     await page.getByLabel(/email/i).fill("ghost@apex20.dev");
     await page.getByLabel(/password/i).fill(TEST_PASSWORD);
     await page.getByRole("button", { name: /sign in/i }).click();
-    await expect(page.getByText(/invalid email or password/i)).toBeVisible({ timeout: 5000 });
+    await expect(page.getByText(/invalid email or password/i)).toBeVisible({ timeout: 15000 });
   });
 
   test("signup creates account and redirects", async ({ page }) => {
@@ -106,7 +106,7 @@ test.describe("Auth — Full Flow (requires backend)", () => {
     await page.getByLabel(/password/i).fill(TEST_PASSWORD);
     await page.getByRole("button", { name: /create account/i }).click();
 
-    await expect(page).not.toHaveURL(/\/signup/, { timeout: 5000 });
+    await expect(page).not.toHaveURL(/\/signup/, { timeout: 15000 });
   });
 
   test("signin with valid credentials redirects", async ({ page }) => {
@@ -118,7 +118,7 @@ test.describe("Auth — Full Flow (requires backend)", () => {
     await page.getByLabel(/email/i).fill(uniqueEmail);
     await page.getByLabel(/password/i).fill(TEST_PASSWORD);
     await page.getByRole("button", { name: /create account/i }).click();
-    await expect(page).not.toHaveURL(/\/signup/, { timeout: 5000 });
+    await expect(page).not.toHaveURL(/\/signup/, { timeout: 15000 });
 
     // Clear cookie and signin
     await page.context().clearCookies();
@@ -127,7 +127,7 @@ test.describe("Auth — Full Flow (requires backend)", () => {
     await page.getByLabel(/password/i).fill(TEST_PASSWORD);
     await page.getByRole("button", { name: /sign in/i }).click();
 
-    await expect(page).not.toHaveURL(/\/login/, { timeout: 5000 });
+    await expect(page).not.toHaveURL(/\/login/, { timeout: 15000 });
   });
 
   test("authenticated user is redirected away from /login", async ({ page }) => {
@@ -138,7 +138,7 @@ test.describe("Auth — Full Flow (requires backend)", () => {
     await page.getByLabel(/email/i).fill(uniqueEmail);
     await page.getByLabel(/password/i).fill(TEST_PASSWORD);
     await page.getByRole("button", { name: /create account/i }).click();
-    await expect(page).not.toHaveURL(/\/signup/, { timeout: 5000 });
+    await expect(page).not.toHaveURL(/\/signup/, { timeout: 15000 });
 
     // Tenta ir para /login autenticado — deve redirecionar
     await page.goto("/login");

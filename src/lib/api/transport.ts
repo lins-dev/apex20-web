@@ -9,6 +9,6 @@ import { createConnectTransport } from "@connectrpc/connect-web";
  */
 export function createTransport(baseUrl?: string) {
   return createConnectTransport({
-    baseUrl: baseUrl ?? process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080",
+    baseUrl: baseUrl ?? process.env.NEXT_PUBLIC_API_URL ?? "/connect",
   });
 }
