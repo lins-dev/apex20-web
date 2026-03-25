@@ -99,4 +99,18 @@ describe("Navbar", () => {
     // Logo link + at least the desktop nav links
     expect(desktopLinks.length).toBeGreaterThanOrEqual(2);
   });
+
+  it("login button links to /login", () => {
+    render(<Navbar locale="en" />);
+    const loginLinks = screen.getAllByRole("link", { name: /log in/i });
+    expect(loginLinks.length).toBeGreaterThanOrEqual(1);
+    expect(loginLinks[0]).toHaveAttribute("href", "/login");
+  });
+
+  it("cta button links to /signup", () => {
+    render(<Navbar locale="en" />);
+    const signupLinks = screen.getAllByRole("link", { name: /start for free/i });
+    expect(signupLinks.length).toBeGreaterThanOrEqual(1);
+    expect(signupLinks[0]).toHaveAttribute("href", "/signup");
+  });
 });

@@ -2,24 +2,19 @@ import { headers } from "next/headers";
 import type { Locale } from "@/i18n";
 import { t } from "@/i18n";
 import { SignUpForm } from "@/modules/auth";
+import { AuthLayout } from "@/modules/auth/components/auth-layout";
 
 export default async function SignUpPage() {
   const headersList = await headers();
   const locale = (headersList.get("x-locale") ?? "pt-br") as Locale;
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="w-full max-w-sm">
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            {t("auth.signUp.title", locale)}
-          </h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {t("auth.signUp.subtitle", locale)}
-          </p>
-        </div>
-        <SignUpForm locale={locale} />
-      </div>
-    </main>
+    <AuthLayout
+      locale={locale}
+      title={t("auth.signUp.title", locale)}
+      subtitle={t("auth.signUp.subtitle", locale)}
+    >
+      <SignUpForm locale={locale} />
+    </AuthLayout>
   );
 }

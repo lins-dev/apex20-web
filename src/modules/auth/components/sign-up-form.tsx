@@ -98,6 +98,23 @@ export function SignUpForm({ locale }: SignUpFormProps) {
         )}
       </div>
 
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="confirmPassword" className="text-sm font-medium text-foreground">
+          {t("auth.signUp.confirmPasswordLabel", locale)}
+        </label>
+        <input
+          id="confirmPassword"
+          type="password"
+          autoComplete="new-password"
+          placeholder={t("auth.signUp.confirmPasswordPlaceholder", locale)}
+          {...register("confirmPassword")}
+          className="h-10 rounded-md border border-input bg-background px-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        />
+        {errors.confirmPassword && (
+          <p className="text-xs text-destructive">{t("auth.errors.passwordsDoNotMatch", locale)}</p>
+        )}
+      </div>
+
       {serverError && (
         <p role="alert" className="text-sm text-destructive">
           {serverError}

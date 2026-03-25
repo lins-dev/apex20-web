@@ -23,28 +23,40 @@ beforeEach(() => {
 });
 
 describe("SignUpForm", () => {
-  it("renders name, email, password fields and submit button", () => {
+  it("renders name, email, password, confirm password fields and submit button", () => {
     render(<SignUpForm locale="en" />);
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^password$/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/confirm password/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /create account/i })).toBeInTheDocument();
   });
 
   it("shows validation error when name is too short", async () => {
     render(<SignUpForm locale="en" />);
-    await userEvent.type(screen.getByLabelText(/name/i), "A");
+    await userEvent.type(screen.getByLabelText(/^name/i), "A");
     await userEvent.click(screen.getByRole("button", { name: /create account/i }));
     expect(await screen.findByText(/2 characters/i)).toBeInTheDocument();
   });
 
   it("shows validation error when email is invalid", async () => {
     render(<SignUpForm locale="en" />);
-    await userEvent.type(screen.getByLabelText(/name/i), "Lucas");
-    await userEvent.type(screen.getByLabelText(/email/i), "not-an-email");
-    await userEvent.type(screen.getByLabelText(/password/i), "password123");
+    await userEvent.type(screen.getByLabelText(/^name/i), "Lucas");
+    await userEvent.type(screen.getByLabelText(/^email/i), "not-an-email");
+    await userEvent.type(screen.getByLabelText(/^password$/i), "password123");
+    await userEvent.type(screen.getByLabelText(/confirm password/i), "password123");
     await userEvent.click(screen.getByRole("button", { name: /create account/i }));
     expect(await screen.findByText(/valid email/i)).toBeInTheDocument();
+  });
+
+  it("shows validation error when passwords do not match", async () => {
+    render(<SignUpForm locale="en" />);
+    await userEvent.type(screen.getByLabelText(/^name/i), "Lucas");
+    await userEvent.type(screen.getByLabelText(/^email/i), "lucas@example.com");
+    await userEvent.type(screen.getByLabelText(/^password$/i), "password123");
+    await userEvent.type(screen.getByLabelText(/confirm password/i), "different123");
+    await userEvent.click(screen.getByRole("button", { name: /create account/i }));
+    expect(await screen.findByText(/do not match/i)).toBeInTheDocument();
   });
 
   it("redirects to / after successful sign up", async () => {
@@ -54,9 +66,10 @@ describe("SignUpForm", () => {
     } as never);
 
     render(<SignUpForm locale="en" />);
-    await userEvent.type(screen.getByLabelText(/name/i), "Lucas");
-    await userEvent.type(screen.getByLabelText(/email/i), "lucas@example.com");
-    await userEvent.type(screen.getByLabelText(/password/i), "password123");
+    await userEvent.type(screen.getByLabelText(/^name/i), "Lucas");
+    await userEvent.type(screen.getByLabelText(/^email/i), "lucas@example.com");
+    await userEvent.type(screen.getByLabelText(/^password$/i), "password123");
+    await userEvent.type(screen.getByLabelText(/confirm password/i), "password123");
     await userEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => expect(mockPush).toHaveBeenCalledWith("/"));
@@ -70,9 +83,10 @@ describe("SignUpForm", () => {
     } as never);
 
     render(<SignUpForm locale="en" />);
-    await userEvent.type(screen.getByLabelText(/name/i), "Lucas");
-    await userEvent.type(screen.getByLabelText(/email/i), "taken@example.com");
-    await userEvent.type(screen.getByLabelText(/password/i), "password123");
+    await userEvent.type(screen.getByLabelText(/^name/i), "Lucas");
+    await userEvent.type(screen.getByLabelText(/^email/i), "taken@example.com");
+    await userEvent.type(screen.getByLabelText(/^password$/i), "password123");
+    await userEvent.type(screen.getByLabelText(/confirm password/i), "password123");
     await userEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     expect(await screen.findByText(/already registered/i)).toBeInTheDocument();

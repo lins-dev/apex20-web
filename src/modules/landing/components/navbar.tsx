@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/ui/web";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -43,14 +44,15 @@ export function Navbar({ locale }: { locale: Locale }) {
           <LanguageSwitcher current={locale} />
           <ThemeToggle />
           <Button
+            asChild
             variant="ghost"
             size="sm"
             className="hidden text-muted hover:text-foreground sm:inline-flex"
           >
-            {t("landing.nav.login", locale)}
+            <Link href="/login">{t("landing.nav.login", locale)}</Link>
           </Button>
-          <Button size="sm" className="hidden bg-primary text-white hover:opacity-90 sm:inline-flex">
-            {t("landing.nav.cta", locale)}
+          <Button asChild size="sm" className="hidden bg-primary text-white hover:opacity-90 sm:inline-flex">
+            <Link href="/signup">{t("landing.nav.cta", locale)}</Link>
           </Button>
 
           {/* Hamburger button (mobile only) */}
@@ -87,11 +89,11 @@ export function Navbar({ locale }: { locale: Locale }) {
             ))}
           </div>
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-            <Button variant="ghost" size="sm" className="justify-start text-muted hover:text-foreground">
-              {t("landing.nav.login", locale)}
+            <Button asChild variant="ghost" size="sm" className="justify-start text-muted hover:text-foreground">
+              <Link href="/login">{t("landing.nav.login", locale)}</Link>
             </Button>
-            <Button size="sm" className="bg-primary text-white hover:opacity-90">
-              {t("landing.nav.cta", locale)}
+            <Button asChild size="sm" className="bg-primary text-white hover:opacity-90">
+              <Link href="/signup">{t("landing.nav.cta", locale)}</Link>
             </Button>
           </div>
         </div>
