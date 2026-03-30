@@ -3,8 +3,18 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SignInForm } from "./sign-in-form";
 
+const mockNavigate = vi.fn();
 const mockSignIn = vi.fn();
-const mockPush = vi.fn();
+
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const mod = await importOriginal<typeof import("@tanstack/react-router")>();
+  return {
+    ...mod,
+    useNavigate: () => mockNavigate,
+    Link: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) =>
+      <a href={to} {...props as object}>{children}</a>,
+  };
+});
 
 vi.mock("../hooks/use-auth", () => ({
   useAuth: () => ({ signIn: mockSignIn }),
@@ -12,10 +22,6 @@ vi.mock("../hooks/use-auth", () => ({
 
 vi.mock("@/lib/api/clients", () => ({
   createAuthClient: vi.fn(),
-}));
-
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ push: mockPush }),
 }));
 
 beforeEach(() => {
@@ -55,7 +61,7 @@ describe("SignInForm", () => {
     await userEvent.type(screen.getByLabelText(/password/i), "password123");
     await userEvent.click(screen.getByRole("button", { name: /sign in/i }));
 
-    await waitFor(() => expect(mockPush).toHaveBeenCalledWith("/"));
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith({ to: "/" }));
   });
 
   it("shows error message on invalid credentials", async () => {

@@ -1,6 +1,11 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { WebUI } from "@/ui";
 
-export default function DesignSystemPage() {
+export const Route = createFileRoute("/design-system")({
+  component: DesignSystemPage,
+});
+
+function DesignSystemPage() {
   return (
     <div className="p-10 space-y-10 min-h-screen bg-background text-foreground">
       <section>

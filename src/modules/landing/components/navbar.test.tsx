@@ -2,10 +2,14 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 
-// Mock next/navigation for LanguageSwitcher dependency
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ refresh: vi.fn() }),
-}));
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const mod = await importOriginal<typeof import("@tanstack/react-router")>();
+  return {
+    ...mod,
+    Link: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) =>
+      <a href={to} {...props as object}>{children}</a>,
+  };
+});
 
 import { Navbar } from "./navbar";
 
@@ -17,7 +21,6 @@ describe("Navbar", () => {
 
   it("renders nav links with translated text in pt-br", () => {
     render(<Navbar locale="pt-br" />);
-    // Nav links appear in both desktop and mobile menus — at least one must exist
     expect(screen.getAllByText("Funcionalidades").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("Roadmap").length).toBeGreaterThanOrEqual(1);
   });
@@ -96,7 +99,6 @@ describe("Navbar", () => {
     render(<Navbar locale="en" />);
     const nav = screen.getByRole("navigation");
     const desktopLinks = within(nav).getAllByRole("link");
-    // Logo link + at least the desktop nav links
     expect(desktopLinks.length).toBeGreaterThanOrEqual(2);
   });
 

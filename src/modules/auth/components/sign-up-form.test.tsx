@@ -3,8 +3,18 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SignUpForm } from "./sign-up-form";
 
+const mockNavigate = vi.fn();
 const mockSignIn = vi.fn();
-const mockPush = vi.fn();
+
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const mod = await importOriginal<typeof import("@tanstack/react-router")>();
+  return {
+    ...mod,
+    useNavigate: () => mockNavigate,
+    Link: ({ to, children, ...props }: { to: string; children: React.ReactNode; [key: string]: unknown }) =>
+      <a href={to} {...props as object}>{children}</a>,
+  };
+});
 
 vi.mock("../hooks/use-auth", () => ({
   useAuth: () => ({ signIn: mockSignIn }),
@@ -12,10 +22,6 @@ vi.mock("../hooks/use-auth", () => ({
 
 vi.mock("@/lib/api/clients", () => ({
   createAuthClient: vi.fn(),
-}));
-
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ push: mockPush }),
 }));
 
 beforeEach(() => {
@@ -72,7 +78,7 @@ describe("SignUpForm", () => {
     await userEvent.type(screen.getByLabelText(/confirm password/i), "password123");
     await userEvent.click(screen.getByRole("button", { name: /create account/i }));
 
-    await waitFor(() => expect(mockPush).toHaveBeenCalledWith("/"));
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith({ to: "/" }));
   });
 
   it("shows error message when email is already in use", async () => {
