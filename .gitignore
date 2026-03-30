@@ -19,6 +19,11 @@
 
 # production
 /build
+/.output/
+/dist/
+
+# vite temp files
+app.config.timestamp_*.js
 
 # misc
 .DS_Store

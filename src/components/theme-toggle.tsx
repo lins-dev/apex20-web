@@ -1,5 +1,3 @@
-"use client";
-
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/ui/shared/utils";
 

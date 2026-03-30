@@ -24,14 +24,7 @@ export function AuthLayout({ locale, title, subtitle, children }: AuthLayoutProp
       {/* Page-level background decorations */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(139,92,246,0.07) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(139,92,246,0.07) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
+        className="pointer-events-none fixed inset-0 bg-grid-48"
       />
       <div
         aria-hidden="true"
@@ -45,22 +38,12 @@ export function AuthLayout({ locale, title, subtitle, children }: AuthLayoutProp
 
             {/* Left — brand panel */}
             <div
-              className="relative hidden flex-col justify-between p-10 lg:flex"
-              style={{
-                background: "linear-gradient(145deg, #110a20 0%, #1a1030 60%, #0f0820 100%)",
-              }}
+              className="relative hidden flex-col justify-between p-10 lg:flex bg-panel-brand"
             >
               {/* Panel grid */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 opacity-30"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(to right, rgba(139,92,246,0.08) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(139,92,246,0.08) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "32px 32px",
-                }}
+                className="absolute inset-0 opacity-30 bg-grid-32"
               />
               {/* Panel glow */}
               <div

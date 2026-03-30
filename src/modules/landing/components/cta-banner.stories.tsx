@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CtaBanner } from "./cta-banner";
 
 const meta: Meta<typeof CtaBanner> = {

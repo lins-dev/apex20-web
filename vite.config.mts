@@ -9,7 +9,7 @@ const apiUrl = process.env["VITE_API_URL"] ?? "http://localhost:8787";
 export default defineConfig({
   plugins: [
     tanstackStart({
-      tsr: {
+      router: {
         routesDirectory: "./src/routes",
         generatedRouteTree: "./src/routeTree.gen.ts",
       },
@@ -24,6 +24,7 @@ export default defineConfig({
     },
   },
   server: {
+    port: 3000,
     proxy: {
       "/connect": {
         target: apiUrl,

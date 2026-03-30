@@ -88,14 +88,7 @@ function GridVisual({ locale }: { locale: Locale }) {
     >
       {/* Grid pattern */}
       <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(139,92,246,0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(139,92,246,0.07) 1px, transparent 1px)
-          `,
-          backgroundSize: "36px 36px",
-        }}
+        className="absolute inset-0 bg-grid-36"
       />
       {/* Fog overlay */}
       <div

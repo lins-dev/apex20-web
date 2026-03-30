@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { SignInForm } from "./sign-in-form";
 
 const meta: Meta<typeof SignInForm> = {
