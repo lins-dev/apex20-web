@@ -9,9 +9,6 @@ export default defineConfig({
     setupFiles: ["./src/ui/test/setup.ts"],
     globals: true,
     exclude: ["node_modules/**", "playwright/**"],
-    typecheck: {
-      tsconfig: "./tsconfig.test.json",
-    },
   },
   resolve: {
     alias: {
