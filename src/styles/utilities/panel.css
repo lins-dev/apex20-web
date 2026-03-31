@@ -1,0 +1,11 @@
+/* Panel background utilities
+ * Theme-aware backgrounds for brand panels that require gradient overrides.
+ */
+
+.bg-panel-brand {
+  background: linear-gradient(145deg, #110a20 0%, #1a1030 60%, #0f0820 100%);
+}
+
+[data-theme="light"] .bg-panel-brand {
+  background: linear-gradient(145deg, #ede9f8 0%, #e6e0f6 60%, #f0ecf9 100%);
+}

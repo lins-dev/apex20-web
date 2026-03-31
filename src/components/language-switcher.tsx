@@ -1,7 +1,4 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { cn } from "@/ui/shared/utils";
 import type { Locale } from "@/i18n";
 
@@ -79,7 +76,6 @@ export function LanguageSwitcher({
   className?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Close on outside click
@@ -96,7 +92,7 @@ export function LanguageSwitcher({
   function setLocale(locale: Locale) {
     document.cookie = `apex20-locale=${locale};path=/;max-age=31536000`;
     setIsOpen(false);
-    router.refresh();
+    window.location.reload();
   }
 
   const active = LOCALES.find((l) => l.code === current) ?? LOCALES[0];

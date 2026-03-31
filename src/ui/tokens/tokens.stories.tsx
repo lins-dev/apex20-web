@@ -1,5 +1,5 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { colors } from "./colors";
 import { typography } from "./typography";
 import { spacing } from "./spacing";

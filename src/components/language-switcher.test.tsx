@@ -2,17 +2,18 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-// Mock next/navigation
-const mockRefresh = vi.fn();
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ refresh: mockRefresh }),
-}));
+const mockReload = vi.fn();
+
+Object.defineProperty(window, "location", {
+  configurable: true,
+  value: { ...window.location, reload: mockReload },
+});
 
 import { LanguageSwitcher } from "./language-switcher";
 
 describe("LanguageSwitcher", () => {
   beforeEach(() => {
-    mockRefresh.mockClear();
+    mockReload.mockClear();
     document.cookie = "";
   });
 
@@ -79,14 +80,14 @@ describe("LanguageSwitcher", () => {
     expect(esOption).toHaveAttribute("aria-selected", "true");
   });
 
-  it("sets cookie and calls router.refresh when locale is selected", async () => {
+  it("sets cookie and reloads page when locale is selected", async () => {
     const user = userEvent.setup();
     render(<LanguageSwitcher current="pt-br" />);
     await user.click(screen.getByRole("button", { name: /selecionar idioma/i }));
     const enOption = screen.getByRole("option", { name: /EN/i });
     await user.click(enOption);
     expect(document.cookie).toContain("apex20-locale=en");
-    expect(mockRefresh).toHaveBeenCalledTimes(1);
+    expect(mockReload).toHaveBeenCalledTimes(1);
   });
 
   it("closes dropdown after selecting a locale", async () => {

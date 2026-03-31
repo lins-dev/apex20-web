@@ -1,11 +1,8 @@
-"use client";
-
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ConnectError, Code } from "@connectrpc/connect";
-import Link from "next/link";
 
 import { t, type Locale } from "@/i18n";
 import { createAuthClient } from "@/lib/api/clients";
@@ -17,7 +14,7 @@ interface SignInFormProps {
 }
 
 export function SignInForm({ locale }: SignInFormProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { signIn } = useAuth();
   const [serverError, setServerError] = useState<string | null>(null);
 
@@ -35,7 +32,7 @@ export function SignInForm({ locale }: SignInFormProps) {
       const client = createAuthClient();
       const res = await client.signIn({ email: data.email, password: data.password });
       signIn(res.accessToken);
-      router.push("/");
+      navigate({ to: "/" });
     } catch (err) {
       if (err instanceof ConnectError && err.code === Code.Unauthenticated) {
         setServerError(t("auth.errors.invalidCredentials", locale));
@@ -97,7 +94,7 @@ export function SignInForm({ locale }: SignInFormProps) {
 
       <p className="text-center text-sm text-muted-foreground">
         {t("auth.signIn.noAccount", locale)}{" "}
-        <Link href="/signup" className="font-medium text-primary hover:underline">
+        <Link to="/signup" className="font-medium text-primary hover:underline">
           {t("auth.signIn.createAccount", locale)}
         </Link>
       </p>

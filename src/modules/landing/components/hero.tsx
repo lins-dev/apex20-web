@@ -9,17 +9,10 @@ export function Hero({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-14">
+    <section className="relative overflow-hidden pt-14">
       {/* Background grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-25"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(139,92,246,0.07) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(139,92,246,0.07) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
+        className="pointer-events-none absolute inset-0 bg-grid-48"
       />
       {/* Ambient glow */}
       <div
@@ -27,7 +20,7 @@ export function Hero({ locale }: { locale: Locale }) {
         style={{ background: "radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 65%)" }}
       />
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:py-32">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 pt-8 pb-20 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:pt-12 lg:pb-32">
         {/* Left — copy */}
         <div className="flex flex-col gap-6 lg:w-[52%] lg:shrink-0">
           <div className="flex items-center gap-2 rounded-full border border-border/60 bg-surface w-fit px-3 py-1">
@@ -143,14 +136,7 @@ function AppMockup({ locale }: { locale: Locale }) {
 
         {/* Canvas */}
         <div
-          className="relative flex-1 overflow-hidden"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: "28px 28px",
-          }}
+          className="relative flex-1 overflow-hidden bg-grid-28"
         >
           {/* Fog of war */}
           <div
