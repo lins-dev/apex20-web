@@ -28,7 +28,7 @@ export function Navbar({ locale }: { locale: Locale }) {
           </a>
 
           {/* Desktop nav links */}
-          <div className="hidden items-center gap-1 md:flex">
+          <div data-testid="desktop-nav-links" className="hidden min-w-0 shrink items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <NavLink key={link.label} href={link.href}>
                 {link.label}
@@ -45,11 +45,11 @@ export function Navbar({ locale }: { locale: Locale }) {
             asChild
             variant="ghost"
             size="sm"
-            className="hidden text-muted hover:text-foreground sm:inline-flex"
+            className="hidden shrink-0 text-muted hover:text-foreground sm:inline-flex"
           >
             <Link to="/login">{t("landing.nav.login", locale)}</Link>
           </Button>
-          <Button asChild size="sm" className="hidden bg-primary text-white hover:opacity-90 sm:inline-flex">
+          <Button asChild size="sm" className="hidden shrink-0 bg-primary text-white hover:opacity-90 sm:inline-flex">
             <Link to="/signup">{t("landing.nav.cta", locale)}</Link>
           </Button>
 

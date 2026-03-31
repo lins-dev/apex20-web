@@ -115,4 +115,28 @@ describe("Navbar", () => {
     expect(signupLinks.length).toBeGreaterThanOrEqual(1);
     expect(signupLinks[0]).toHaveAttribute("href", "/signup");
   });
+
+  describe("FR locale — layout stability", () => {
+    it("desktop nav links container has min-w-0 to allow shrinking", () => {
+      render(<Navbar locale="fr" />);
+      const navLinks = screen.getByTestId("desktop-nav-links");
+      expect(navLinks.className).toContain("min-w-0");
+    });
+
+    it("desktop login button has shrink-0 to prevent wrapping", () => {
+      render(<Navbar locale="fr" />);
+      const loginLinks = screen.getAllByRole("link", { name: /se connecter/i });
+      const desktopLogin = loginLinks.find((el) => el.className.includes("sm:inline-flex"));
+      expect(desktopLogin).toBeDefined();
+      expect(desktopLogin!.className).toContain("shrink-0");
+    });
+
+    it("desktop CTA button has shrink-0 to prevent wrapping", () => {
+      render(<Navbar locale="fr" />);
+      const ctaLinks = screen.getAllByRole("link", { name: /commencer gratuitement/i });
+      const desktopCta = ctaLinks.find((el) => el.className.includes("sm:inline-flex"));
+      expect(desktopCta).toBeDefined();
+      expect(desktopCta!.className).toContain("shrink-0");
+    });
+  });
 });
