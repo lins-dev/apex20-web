@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useSessionStore } from "@/store/session";
+import { useAuth } from "@/modules/auth/hooks/use-auth";
 import type { GridEvent, StreamGridEventsRequest } from "@contracts/apex20/v1/grid_events_pb";
+import type { HandshakeRequest } from "@contracts/apex20/v1/handshake_pb";
 
 type WSStatus = "idle" | "connecting" | "connected" | "reconnecting" | "error";
 
@@ -25,12 +27,18 @@ export function useWebsocket({ url, onMessage, autoConnect = true }: UseWebsocke
   const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const setConnected = useSessionStore((state) => state.setConnected);
+  const campaignId = useSessionStore((state) => state.campaignId);
+  const token = useAuth((state) => state.token);
 
   const onMessageRef = useRef(onMessage);
   onMessageRef.current = onMessage;
 
   const connect = useCallback(() => {
     if (socketRef.current?.readyState === WebSocket.OPEN) return;
+    if (!token || !campaignId) {
+      console.warn("WebSocket connect aborted: Missing token or campaignId");
+      return;
+    }
 
     setStatus(() => (reconnectAttemptsRef.current > 0 ? "reconnecting" : "connecting"));
     
@@ -38,6 +46,15 @@ export function useWebsocket({ url, onMessage, autoConnect = true }: UseWebsocke
     socketRef.current = socket;
 
     socket.onopen = () => {
+      // Realiza o Handshake (ADR-002 / ADR-019) como o primeiro frame
+      const handshake: HandshakeRequest = {
+        $typeName: "apex20.v1.HandshakeRequest",
+        accessToken: token,
+        campaignId: campaignId,
+      } as unknown as HandshakeRequest;
+      
+      socket.send(JSON.stringify(handshake));
+
       setStatus("connected");
       setConnected(true);
       setError(null);
@@ -77,7 +94,7 @@ export function useWebsocket({ url, onMessage, autoConnect = true }: UseWebsocke
         return "idle";
       });
     };
-  }, [url, setConnected]);
+  }, [url, setConnected, token, campaignId]);
 
   const scheduleReconnect = useCallback(() => {
     if (reconnectTimeoutRef.current) return;

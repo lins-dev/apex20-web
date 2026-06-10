@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useWebsocket } from "./use-websocket";
 import { useSessionStore } from "@/store/session";
+import { useAuth } from "@/modules/auth/hooks/use-auth";
 import { act } from "react";
 import type { GridEvent, StreamGridEventsRequest } from "@contracts/apex20/v1/grid_events_pb";
 
@@ -87,7 +88,22 @@ describe("useWebsocket", () => {
 
   beforeEach(() => {
     vi.stubGlobal("WebSocket", MockWebSocket);
-    useSessionStore.getState().reset();
+    
+    // Injeta dados de sessão necessários para o Handshake
+    useSessionStore.setState({
+      campaignId: "test-campaign-123",
+      connected: false,
+      sceneId: null
+    });
+    
+    // Injeta os dados da Auth
+    useAuth.setState({
+      token: "mock.jwt.token",
+      userId: "test-user-123",
+      isAdmin: false,
+      isAuthenticated: true
+    });
+
     mockSockets = [];
   });
 
