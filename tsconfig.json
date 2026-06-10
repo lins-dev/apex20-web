@@ -21,7 +21,7 @@
         "./src/*"
       ],
       "@contracts/*": [
-        "./contracts/gen/ts/*"
+        "./contracts/gen/ts/proto/*"
       ]
     }
   },

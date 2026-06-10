@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { create } from "zustand";
 
 const TOKEN_COOKIE = "apex20-token";
 const COOKIE_MAX_AGE = 60 * 60 * 24; // 24h
@@ -15,11 +15,15 @@ export interface TokenPayload {
 // --- cookie helpers (usable outside React) ---
 
 export function setToken(token: string): void {
-  document.cookie = `${TOKEN_COOKIE}=${token}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+  if (typeof document !== "undefined") {
+    document.cookie = `${TOKEN_COOKIE}=${token}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+  }
 }
 
 export function clearToken(): void {
-  document.cookie = `${TOKEN_COOKIE}=; path=/; max-age=0`;
+  if (typeof document !== "undefined") {
+    document.cookie = `${TOKEN_COOKIE}=; path=/; max-age=0`;
+  }
 }
 
 export function getToken(): string | null {
@@ -41,7 +45,7 @@ export function decodeTokenPayload(token: string): TokenPayload | null {
   }
 }
 
-// --- React hook ---
+// --- Zustand Store (ADR-002) ---
 
 export interface AuthState {
   token: string | null;
@@ -52,27 +56,24 @@ export interface AuthState {
   signOut: () => void;
 }
 
-export function useAuth(): AuthState {
-  const [token, setTokenState] = useState<string | null>(() => getToken());
-
+function buildState(token: string | null) {
   const payload = token ? decodeTokenPayload(token) : null;
-
-  const signIn = useCallback((newToken: string) => {
-    setToken(newToken);
-    setTokenState(newToken);
-  }, []);
-
-  const signOut = useCallback(() => {
-    clearToken();
-    setTokenState(null);
-  }, []);
-
   return {
     token,
     userId: payload?.sub ?? null,
     isAdmin: payload?.is_admin ?? false,
     isAuthenticated: token !== null,
-    signIn,
-    signOut,
   };
 }
+
+export const useAuth = create<AuthState>((set) => ({
+  ...buildState(getToken()),
+  signIn: (token: string) => {
+    setToken(token);
+    set(buildState(token));
+  },
+  signOut: () => {
+    clearToken();
+    set(buildState(null));
+  },
+}));

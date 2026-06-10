@@ -1,4 +1,17 @@
 import { createConnectTransport } from "@connectrpc/connect-web";
+import type { Interceptor } from "@connectrpc/connect";
+import { getToken } from "@/modules/auth/hooks/use-auth";
+
+/**
+ * Interceptor para injetar o JWT no header Authorization em todas as chamadas RPC.
+ */
+const authInterceptor: Interceptor = (next) => async (req) => {
+  const token = getToken();
+  if (token) {
+    req.header.set("Authorization", `Bearer ${token}`);
+  }
+  return next(req);
+};
 
 /**
  * Transport padrão para comunicação com o apex20-backend via ConnectRPC.
@@ -10,5 +23,6 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 export function createTransport(baseUrl?: string) {
   return createConnectTransport({
     baseUrl: baseUrl ?? (import.meta.env.VITE_API_URL as string) ?? "/connect",
+    interceptors: [authInterceptor],
   });
 }

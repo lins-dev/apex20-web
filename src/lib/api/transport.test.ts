@@ -1,9 +1,16 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { createTransport } from "./transport";
+import { useAuth } from "@/modules/auth/hooks/use-auth";
 
 describe("createTransport", () => {
   beforeEach(() => {
     vi.unstubAllEnvs();
+    useAuth.setState({
+      token: null,
+      userId: null,
+      isAdmin: false,
+      isAuthenticated: false,
+    });
   });
 
   it("returns a transport object", () => {

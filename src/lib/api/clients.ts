@@ -1,8 +1,8 @@
 import { createClient } from "@connectrpc/connect";
-import { HealthService } from "@contracts/proto/apex20/v1/health_pb";
-import { ChatService } from "@contracts/proto/apex20/v1/chat_pb";
-import { SessionService } from "@contracts/proto/apex20/v1/handshake_pb";
-import { AuthService } from "@contracts/proto/apex20/v1/auth_pb";
+import { HealthService } from "@contracts/apex20/v1/health_pb";
+import { ChatService } from "@contracts/apex20/v1/chat_pb";
+import { SessionService } from "@contracts/apex20/v1/handshake_pb";
+import { AuthService } from "@contracts/apex20/v1/auth_pb";
 import { createTransport } from "./transport";
 import type { Transport } from "@connectrpc/connect";
 
