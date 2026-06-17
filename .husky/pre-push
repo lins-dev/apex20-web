@@ -1,0 +1,18 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🛡️ Executando auditoria de segurança antes do push..."
+
+# 1. Auditoria de vulnerabilidades
+npm audit --audit-level=high || {
+  echo "❌ Push abortado: Foram encontradas vulnerabilidades de nível HIGH ou CRITICAL."
+  exit 1
+}
+
+# 2. Verificação de idade de pacotes (Cooldown 7 dias)
+node scripts/secure-install.js || {
+  echo "❌ Push abortado: Falha na verificação de idade dos pacotes."
+  exit 1
+}
+
+echo "✅ Segurança validada. Prosseguindo com o push."
