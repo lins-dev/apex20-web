@@ -11,7 +11,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const MIN_AGE_DAYS = 0;
+const MIN_AGE_DAYS = 7;
 const MIN_AGE_MS = MIN_AGE_DAYS * 24 * 60 * 60 * 1000;
 const NOW = Date.now();
 
